@@ -306,3 +306,27 @@ textarea:-webkit-autofill {
     transition-duration: 0.01ms !important;
   }
 }
+.hover-glow-card {
+  position: relative;
+}
+
+.hover-glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(190, 242, 100, 0.5),
+    transparent 40%,
+    transparent 60%,
+    rgba(190, 242, 100, 0.3)
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.hover-glow-card:hover::before {
+  opacity: 1;
+}

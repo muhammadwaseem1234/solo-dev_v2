@@ -564,20 +564,81 @@ function Engagement() {
         <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-white/8 bg-white/8 lg:grid-cols-3">
           {options.map((option, index) => (
             <article
-              key={option.title}
-              data-testid={ENGAGEMENT.option(index + 1)}
-              className="hover-lift bg-ink-950 p-8 md:p-10"
-            >
-              <div className="text-xs uppercase tracking-[0.18em] text-lime-accent/90">
-                {option.meta}
-              </div>
-              <h3 className="mt-8 font-display text-3xl font-light tracking-tight text-ink-50">
-                {option.title}
-              </h3>
-              <p className="mt-5 text-base leading-relaxed text-ink-400">
-                {option.copy}
-              </p>
-            </article>
+  key={option.title}
+  data-testid={ENGAGEMENT.option(index + 1)}
+  className="
+    group relative overflow-hidden rounded-3xl
+    border border-white/10
+    bg-white/[0.03]
+    p-8 md:p-10
+    transition-all duration-500
+    hover:border-lime-accent/40
+    hover:-translate-y-2
+  "
+>
+  {/* Glow */}
+  <div
+    className="
+      pointer-events-none absolute inset-0 opacity-0
+      transition-opacity duration-500
+      group-hover:opacity-100
+    "
+  >
+    <div
+      className="
+        absolute -top-24 left-1/2 h-48 w-48
+        -translate-x-1/2 rounded-full
+        bg-lime-accent/20 blur-3xl
+      "
+    />
+  </div>
+
+  {/* Glass Overlay */}
+  <div
+    className="
+      absolute inset-0
+      bg-gradient-to-b
+      from-white/[0.08]
+      via-transparent
+      to-transparent
+      opacity-0
+      transition-opacity duration-500
+      group-hover:opacity-100
+    "
+  />
+
+  <div className="relative z-10">
+    <div
+      className="
+        text-xs uppercase tracking-[0.18em]
+        text-lime-accent/90
+      "
+    >
+      {option.meta}
+    </div>
+
+    <h3
+      className="
+        mt-8 font-display text-3xl font-light
+        tracking-tight text-ink-50
+        transition-colors duration-500
+        group-hover:text-white
+      "
+    >
+      {option.title}
+    </h3>
+
+    <p
+      className="
+        mt-5 text-base leading-relaxed text-ink-400
+        transition-colors duration-500
+        group-hover:text-ink-300
+      "
+    >
+      {option.copy}
+    </p>
+  </div>
+</article>
           ))}
         </div>
       </div>
@@ -587,61 +648,61 @@ function Engagement() {
 
 function Capability() {
   const projects = [
-    {
-      id: "northwind",
-      client: "Northwind Advisory",
-      sector: "B2B / Consulting",
-      kicker: "Sales website",
-      result: "+38% qualified leads",
-      copy: "Repositioned a 12-year-old advisory firm. New narrative, tightened pricing page, fresh case study system.",
-      img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=70",
-    },
-    {
-      id: "atlas-health",
-      client: "Atlas Health",
-      sector: "Healthcare SaaS",
-      kicker: "Responsive web app",
-      result: "Cut onboarding to 4 min",
-      copy: "Redesigned the practitioner dashboard and patient intake flow. Shipped with new auth, billing and audit logs.",
-      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=70",
-    },
-    {
-      id: "field-collective",
-      client: "Field Collective",
-      sector: "Studio / Service",
-      kicker: "Sales website + CMS",
-      result: "2.4x inbound enquiries",
-      copy: "Editorial-led site for a design collective. Structured project schema, every team member can publish.",
-      img: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1400&q=70",
-    },
-    {
-      id: "kernel-labs",
-      client: "Kernel Labs",
-      sector: "Developer tools",
-      kicker: "Automation system",
-      result: "9 hrs/week reclaimed",
-      copy: "Glue layer between Stripe, HubSpot, Slack and Linear. Lead routing, onboarding emails and internal ops dashboard.",
-      img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=70",
-    },
-    {
-      id: "harbor-legal",
-      client: "Harbor Legal",
-      sector: "Professional services",
-      kicker: "Sales website",
-      result: "+62% time-on-page",
-      copy: "Stripped a noisy law-firm site to a calm, trust-led narrative. New positioning, content model and case index.",
-      img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=70",
-    },
-    {
-      id: "loom-co",
-      client: "Loom & Co.",
-      sector: "DTC / Lifestyle",
-      kicker: "CMS-ready content",
-      result: "Editorial cadence x4",
-      copy: "Headless CMS, structured product stories, schema for collections and journal. The team ships weekly.",
-      img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1400&q=70",
-    },
-  ];
+  {
+    id: "venture-studio",
+    client: "Venture Studio",
+    sector: "Startup / Product",
+    kicker: "MVP web application",
+    result: "Launch in weeks, not months",
+    copy: "Design and develop a production-ready MVP with authentication, dashboards, payments, and scalable infrastructure for early-stage founders.",
+    img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=70",
+  },
+  {
+    id: "health-platform",
+    client: "Healthcare Platform",
+    sector: "Healthcare SaaS",
+    kicker: "Responsive web app",
+    result: "Simplified user journeys",
+    copy: "Build intuitive patient and practitioner experiences with secure authentication, scheduling, records management, and analytics.",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=70",
+  },
+  {
+    id: "creative-agency",
+    client: "Creative Agency",
+    sector: "Studio / Service",
+    kicker: "Sales website + CMS",
+    result: "Built for inbound growth",
+    copy: "Create editorial-driven websites with flexible content management, strong storytelling, and conversion-focused design systems.",
+    img: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1400&q=70",
+  },
+  {
+    id: "operations-suite",
+    client: "Operations Team",
+    sector: "Business Automation",
+    kicker: "Automation system",
+    result: "Hours reclaimed every week",
+    copy: "Connect CRMs, payment systems, communication tools, and internal processes into a streamlined operational workflow.",
+    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=70",
+  },
+  {
+    id: "professional-firm",
+    client: "Professional Firm",
+    sector: "Consulting / Legal",
+    kicker: "Authority website",
+    result: "Stronger digital presence",
+    copy: "Craft trust-driven websites with refined messaging, service architecture, and content systems that position expertise clearly.",
+    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=70",
+  },
+  {
+    id: "modern-brand",
+    client: "Modern Brand",
+    sector: "DTC / Lifestyle",
+    kicker: "Content ecosystem",
+    result: "Consistent publishing workflow",
+    copy: "Develop scalable content platforms with structured CMS architecture, collection management, and growth-ready foundations.",
+    img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1400&q=70",
+  },
+];
 
   return (
     <section
@@ -656,15 +717,15 @@ function Capability() {
               Capability Snapshot
             </div>
             <h2 className="mt-4 max-w-[18ch] text-balance font-display text-5xl font-light leading-tighter tracking-tighter text-ink-50 md:text-6xl lg:text-7xl">
-              A small slice of{" "}
+              What we can{" "}
               <span className="font-serif italic text-ink-300">
-                recent work.
+                build for you.
               </span>
             </h2>
           </div>
           <p className="max-w-md text-pretty text-base leading-snug text-ink-400 md:text-lg">
-            Founders we&apos;ve partnered with, the shape of the engagement, and
-            the outcome that mattered.
+            From conversion-focused websites to custom software and automation systems,
+  these are the kinds of solutions I help businesses launch and scale.
           </p>
         </div>
 
@@ -740,11 +801,11 @@ function Contact() {
           </div>
           <div className="flex flex-col justify-end gap-4 md:col-span-5">
             <a
-              href="mailto:hello@waseem.studio?subject=New%20project%20enquiry"
+              href="mailto:hello@mmuhammadwaseem2004@gmail.com?subject=New%20project%20enquiry"
               data-testid={CONTACT.ctaEmail}
               className="btn-pill btn-pill--primary justify-center"
             >
-              Email hello@waseem.studio
+              Email Us
               <Icon>&rarr;</Icon>
             </a>
             <a
@@ -822,10 +883,10 @@ function Footer() {
                 <li>
                   <a
                     data-testid={FOOTER.emailLink}
-                    href="mailto:hello@waseem.studio"
+                    href="mailto:mmuhammadwaseem2004@gmail.com"
                     className="link"
                   >
-                    hello@waseem.studio
+                    mmuhammadwaseem2004@gmail.com
                   </a>
                 </li>
                 <li className="text-ink-400">Remote, working globally</li>
